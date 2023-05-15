@@ -1,0 +1,11 @@
+C:\Source\CSharp\05_15\QuteCat\bin\Debug\QuteCat.exe.config
+C:\Source\CSharp\05_15\QuteCat\bin\Debug\QuteCat.exe
+C:\Source\CSharp\05_15\QuteCat\bin\Debug\QuteCat.pdb
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.csproj.AssemblyReference.cache
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.csproj.SuggestedBindingRedirects.cache
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.Form1.resources
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.Properties.Resources.resources
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.csproj.GenerateResource.cache
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.csproj.CoreCompileInputs.cache
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.exe
+C:\Source\CSharp\05_15\QuteCat\obj\Debug\QuteCat.pdb
