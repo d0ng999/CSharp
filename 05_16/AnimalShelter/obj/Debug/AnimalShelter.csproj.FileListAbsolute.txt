@@ -1,0 +1,11 @@
+C:\Source\CSharp\05_16\AnimalShelter\bin\Debug\AnimalShelter.exe.config
+C:\Source\CSharp\05_16\AnimalShelter\bin\Debug\AnimalShelter.exe
+C:\Source\CSharp\05_16\AnimalShelter\bin\Debug\AnimalShelter.pdb
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.csproj.AssemblyReference.cache
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.csproj.SuggestedBindingRedirects.cache
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.Form1.resources
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.Properties.Resources.resources
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.csproj.GenerateResource.cache
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.csproj.CoreCompileInputs.cache
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.exe
+C:\Source\CSharp\05_16\AnimalShelter\obj\Debug\AnimalShelter.pdb

@@ -9,19 +9,23 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Xml.Schema;
 
 namespace Calcualator_Myself
 {
     
-    public enum Operators { Add, Sub, Multi, Div, Equal, Double, Sqrt, OneDiv };
+    public enum Operators { Add, Sub, Multi, Div, Equal, Double, Sqrt, OneDiv};
 
     public partial class Form1 : Form
     {
         public bool isNewNum = true;
         public Operators Opt = Operators.Add;
         public double Result = 0;
+        public double Res = 0;
         public bool ishave = true;
- 
+        public int count_dot = 0;
+        public int count_Equal = 0;
+
 
         public Form1()
         {
@@ -39,6 +43,10 @@ namespace Calcualator_Myself
             if (isNewNum)
             {
                 NumScreen1.Text = num;
+                if (ishave = NumScreen1.Text.Contains("."))
+                    count_dot = 1;
+                else
+                    count_dot = 0;
                 if (ishave = NumScreen2.Text.Contains("="))
                 {
                     NumScreen2.Text = "";
@@ -48,21 +56,19 @@ namespace Calcualator_Myself
                     NumScreen2.Text = "";
                 }
 
-                NumScreen2.Text += num;
-
                 isNewNum = false;
             }
 
             else
             {
                 NumScreen1.Text += num;
-                NumScreen2.Text += num;
             }
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
             double num = double.Parse(NumScreen1.Text);
+            //const double num2 = num;
 
             if (isNewNum == false)
             {
@@ -99,25 +105,45 @@ namespace Calcualator_Myself
             if (mark.Text == "+")
             {
                 Opt = Operators.Add;
+                NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
+                if (ishave = NumScreen2.Text.Contains("+"))
+                {
+                    NumScreen2.Text = num.ToString() + "+";
+                }
 
             }
             else if (mark.Text == "-")
             {
                 Opt = Operators.Sub;
+                NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
+                if (ishave = NumScreen2.Text.Contains("-"))
+                {
+                    NumScreen2.Text = num.ToString() + "-";
+                }
 
             }
             else if(mark.Text == "*")
             {
                 Opt = Operators.Multi;
+                NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
+                if (ishave = NumScreen2.Text.Contains("*"))
+                {
+                    NumScreen2.Text = num.ToString() + "*";
+                }
 
             }
             else if(mark.Text == "/")
             {
                 Opt = Operators.Div;
+                NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
+                if (ishave = NumScreen2.Text.Contains("/"))
+                {
+                    NumScreen2.Text = num.ToString() + "/";
+                }
 
             }
             else if (mark.Text == "=")
@@ -125,6 +151,16 @@ namespace Calcualator_Myself
                 Opt = Operators.Equal;
                 MatchCollection matches = Regex.Matches(NumScreen2.Text, "=");
                 int cnt = matches.Count;
+                count_Equal += 1;
+                
+                //if (count_Equal>1)
+                //{
+                //    if (ishave = NumScreen2.Text.Contains("+"))
+                //    {
+                //        NumScreen2.Text = Res.ToString() + "+" + num2;
+                //        NumScreen1.Text = (Res + num2).ToString();
+                //    }
+                //}
 
                 if (cnt == 1)
                 {
@@ -132,7 +168,9 @@ namespace Calcualator_Myself
                 }
                 else
                 {
+                    NumScreen2.Text += num;
                     NumScreen2.Text += mark.Text;
+                    Res = double.Parse(NumScreen1.Text);
                 }
             }
         }
@@ -147,12 +185,21 @@ namespace Calcualator_Myself
 
         private void button5_Click(object sender, EventArgs e)
         {
+            
             double num = double.Parse(NumScreen1.Text);
-            Result = 1 / num;
-            NumScreen1.Text = Result.ToString();
-            NumScreen2.Text = ("1/" + num);
-            isNewNum = true;
-            Result = 0;
+            if (num == 0)
+            {
+                NumScreen1.Text = "0은 나눌 수 없습니다";
+            }
+            else
+            {
+                Result = 1 / num;
+                NumScreen1.Text = Result.ToString();
+                NumScreen2.Text = ("1/" + num);
+                isNewNum = true;
+                Result = 0;
+            }
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -180,5 +227,20 @@ namespace Calcualator_Myself
             NumScreen1.Text = "0";
             isNewNum = true;
         }
-    }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int len = NumScreen1.Text.Length;
+            NumScreen1.Text = NumScreen1.Text.Remove(len-1, 1);
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            count_dot += 1;   
+            if (count_dot == 1)
+            {
+                NumScreen1.Text += ".";
+            }
+        }
+    }   
 }
