@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.NumScreen2 = new System.Windows.Forms.Label();
             this.NumScreen1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -351,11 +352,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.NumScreen1);
             this.Controls.Add(this.NumScreen2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(300, 500);
             this.MinimumSize = new System.Drawing.Size(300, 500);
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "Form1";
+            this.Text = "Calculator";
             this.ResumeLayout(false);
 
         }
