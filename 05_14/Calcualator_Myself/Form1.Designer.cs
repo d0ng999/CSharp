@@ -87,7 +87,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "%";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button20_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -285,8 +285,9 @@
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(60, 57);
             this.button21.TabIndex = 2;
-            this.button21.Text = "button1";
+            this.button21.Text = "+/-";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button22
             // 

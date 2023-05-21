@@ -22,6 +22,7 @@ namespace Calcualator_Myself
         public Operators Opt = Operators.Add;
         public double Result = 0;
         public double Res = 0;
+        public double SecondValue = 0;
         public bool ishave = true;
         public int count_dot = 0;
         public int count_Equal = 0;
@@ -68,6 +69,7 @@ namespace Calcualator_Myself
         private void button20_Click(object sender, EventArgs e)
         {
             double num = double.Parse(NumScreen1.Text);
+            this.SecondValue = double.MinValue;
             //const double num2 = num;
 
             if (isNewNum == false)
@@ -93,6 +95,7 @@ namespace Calcualator_Myself
                 {
                     NumScreen1.Text = Result.ToString();
                     Result = num;
+
                 }
 
                 isNewNum = true;
@@ -107,9 +110,10 @@ namespace Calcualator_Myself
                 Opt = Operators.Add;
                 NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
-                if (ishave = NumScreen2.Text.Contains("+"))
+                if (ishave = NumScreen2.Text.Contains("="))
                 {
                     NumScreen2.Text = num.ToString() + "+";
+                    NumScreen1.Text = "";
                 }
 
             }
@@ -118,7 +122,7 @@ namespace Calcualator_Myself
                 Opt = Operators.Sub;
                 NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
-                if (ishave = NumScreen2.Text.Contains("-"))
+                if (ishave = NumScreen2.Text.Contains("="))
                 {
                     NumScreen2.Text = num.ToString() + "-";
                 }
@@ -129,7 +133,7 @@ namespace Calcualator_Myself
                 Opt = Operators.Multi;
                 NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
-                if (ishave = NumScreen2.Text.Contains("*"))
+                if (ishave = NumScreen2.Text.Contains("="))
                 {
                     NumScreen2.Text = num.ToString() + "*";
                 }
@@ -140,7 +144,7 @@ namespace Calcualator_Myself
                 Opt = Operators.Div;
                 NumScreen2.Text += num;
                 NumScreen2.Text += mark.Text;
-                if (ishave = NumScreen2.Text.Contains("/"))
+                if (ishave = NumScreen2.Text.Contains("="))
                 {
                     NumScreen2.Text = num.ToString() + "/";
                 }
@@ -151,7 +155,7 @@ namespace Calcualator_Myself
                 Opt = Operators.Equal;
                 MatchCollection matches = Regex.Matches(NumScreen2.Text, "=");
                 int cnt = matches.Count;
-                count_Equal += 1;
+                //count_Equal += 1;
                 
                 //if (count_Equal>1)
                 //{
@@ -242,5 +246,88 @@ namespace Calcualator_Myself
                 NumScreen1.Text += ".";
             }
         }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            double num = double.Parse(NumScreen1.Text);
+            num = num*(-1);
+            NumScreen1.Text = num.ToString();
+            
+            if (ishave == NumScreen2.Text.Contains("="))
+            {
+                NumScreen2.Text = "";                
+            }
+            Result = num;
+            isNewNum = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double num = double.Parse(NumScreen1.Text);
+            Result = num * (0.01);
+            NumScreen1.Text = Result.ToString();
+
+        }
+
+        //private void button22_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    double num = double.Parse(NumScreen1.Text);
+        //    if (isNewNum == false)
+        //    {
+
+        //        if (Opt == Operators.Add)
+        //        {
+        //            Result += num;
+        //        }
+        //        else if (Opt == Operators.Sub)
+        //        {
+        //            Result -= num;
+        //        }
+        //        else if (Opt == Operators.Multi)
+        //        {
+        //            Result *= num;
+        //        }
+        //        else if (Opt == Operators.Div)
+        //        {
+        //            Result /= num;
+        //        }
+        //        else if (Opt == Operators.Equal)
+        //        {
+        //            NumScreen1.Text = Result.ToString();
+        //            Result = num;
+        //        }
+
+        //        isNewNum = true;
+        //    }
+
+        //    string num1 = e.KeyData.ToString().Replace("NumPad", "");
+        //    if ((e.KeyCode == Keys.NumPad0 || e.KeyCode == Keys.NumPad1 || e.KeyCode == Keys.NumPad2 || e.KeyCode == Keys.NumPad3 ||
+        //       e.KeyCode == Keys.NumPad4 || e.KeyCode == Keys.NumPad5 || e.KeyCode == Keys.NumPad6 || e.KeyCode == Keys.NumPad7 ||
+        //       e.KeyCode == Keys.NumPad8 || e.KeyCode == Keys.NumPad9) && isNewNum)
+        //    {
+        //        NumScreen1.Text += num1;
+        //    }
+        //    else if(e.KeyCode == Keys.Add)
+        //    {
+        //        Opt = Operators.Multi;
+        //        NumScreen2.Text += NumScreen1.Text;
+        //        NumScreen2.Text += "+";
+        //        if (ishave = NumScreen2.Text.Contains("="))
+        //        {
+        //            NumScreen2.Text = this.Result + "+";
+        //        }
+        //        NumScreen1.Text = "";
+        //    }
+        //    isNewNum = true;
+
+        //}
+
+        //private void button14_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == (int)Keys.NumPad0)
+        //    {
+        //        NumScreen1.Text += e.KeyChar;
+        //    }
+        //}
     }   
 }
