@@ -11,10 +11,11 @@ using System.Windows.Forms;
 
 namespace AnimalShelter
 {
-    public partial class Form1 : Form
+    internal partial class Form1 : Form
     {
-        public Customer Cus1;
-        public Customer Cus2;
+        public Customer[] CustomerArray = new Customer[10];
+
+        public int CustomerArrayIndex = 0;
 
         public Form1()
         {
@@ -23,24 +24,38 @@ namespace AnimalShelter
 
         private void CreateCustomer_Click(object sender, EventArgs e)
         {
-            Customer[] customerArray = new Customer[5];
-            
-            
-
-            Cus1 = new Customer(CusNewFirstName.Text, CusNewLastName.Text,
+            CustomerArray[CustomerArrayIndex] = new Customer(CusNewFirstName.Text, CusNewLastName.Text,
             DateTime.Parse(CusNewBirthday.Text));
-            Cus1.Address = CusNewAddress.Text;
-            Cus1.Description = CusNewDescription.Text;
 
-            CusFullName.Text = Cus1.FullName;
-            CusAddress.Text = Cus1.Address;
-            CusAge.Text = Cus1.Age.ToString(); //속성을 나타내는 방법
-            // 이 속성은 바로 위의 GetAge()함수를 쓴 것과 동일한 값을 나타낸다.
-            CusDescription.Text = Cus1.Description;
-            CusIsQulified.Text = Cus1.IsQulified.ToString();
-            // 날짜와 시간을 저장하는 구조체(클래스와 비슷)
-            //DateTime date = new DateTime(2023, 2, 5); // 생성자(연도, 월, 일)
-            //DateTime Current = DateTime.Now; // 현재의 날짜와 시간이 저장이 된다.
+            CustomerArray[CustomerArrayIndex].Address = CusNewAddress.Text;
+            CustomerArray[CustomerArrayIndex].Description = CusNewDescription.Text;
+
+            CustomerList.Items.Add(CustomerArray[CustomerArrayIndex].FirstName);
+
+            CustomerArrayIndex++;
+        }
+
+        public void ShowDetails(Customer cus)
+        {
+            CusFullName.Text = cus.FullName;
+            CusAge.Text = cus.Age.ToString();
+            CusAddress.Text = cus.Address;
+            CusDescription.Text = cus.Description;
+            CusIsQulified.Text = cus.IsQulified.ToString();
+        }
+
+        private void CustomerList_Click(object sender, EventArgs e)
+        {
+            string firstName = CustomerList.SelectedItem.ToString();
+
+            for (int index = 0; index < CustomerArrayIndex; index++)
+            {
+                if (CustomerArray[index].FirstName == firstName)
+                {
+                    ShowDetails(CustomerArray[index]);
+                    break;
+                }
+            }
         }
     }
 }
