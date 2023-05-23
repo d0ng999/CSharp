@@ -51,14 +51,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.CustomerList = new System.Windows.Forms.ListBox();
+            this.CusListPanel = new System.Windows.Forms.Panel();
+            this.CusList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CusDetailPanel.SuspendLayout();
             this.CusNewPanel.SuspendLayout();
+            this.CusListPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CusList)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CreateCustomer
             // 
-            this.CreateCustomer.Location = new System.Drawing.Point(185, 329);
+            this.CreateCustomer.Location = new System.Drawing.Point(181, 317);
             this.CreateCustomer.Name = "CreateCustomer";
             this.CreateCustomer.Size = new System.Drawing.Size(122, 34);
             this.CreateCustomer.TabIndex = 6;
@@ -78,7 +87,7 @@
             this.CusDetailPanel.Controls.Add(this.CusFullName);
             this.CusDetailPanel.Controls.Add(this.label3);
             this.CusDetailPanel.Controls.Add(this.label2);
-            this.CusDetailPanel.Location = new System.Drawing.Point(514, 12);
+            this.CusDetailPanel.Location = new System.Drawing.Point(390, 13);
             this.CusDetailPanel.Name = "CusDetailPanel";
             this.CusDetailPanel.Size = new System.Drawing.Size(221, 363);
             this.CusDetailPanel.TabIndex = 1;
@@ -186,10 +195,11 @@
             this.CusNewPanel.Controls.Add(this.label8);
             this.CusNewPanel.Controls.Add(this.label7);
             this.CusNewPanel.Controls.Add(this.label6);
-            this.CusNewPanel.Location = new System.Drawing.Point(198, 12);
+            this.CusNewPanel.Location = new System.Drawing.Point(428, 0);
             this.CusNewPanel.Name = "CusNewPanel";
-            this.CusNewPanel.Size = new System.Drawing.Size(310, 366);
+            this.CusNewPanel.Size = new System.Drawing.Size(315, 382);
             this.CusNewPanel.TabIndex = 2;
+            this.CusNewPanel.Visible = false;
             // 
             // CusNewDescription
             // 
@@ -272,31 +282,91 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "성";
             // 
-            // CustomerList
+            // CusListPanel
             // 
-            this.CustomerList.FormattingEnabled = true;
-            this.CustomerList.ItemHeight = 12;
-            this.CustomerList.Location = new System.Drawing.Point(12, 12);
-            this.CustomerList.Name = "CustomerList";
-            this.CustomerList.Size = new System.Drawing.Size(180, 232);
-            this.CustomerList.TabIndex = 3;
-            this.CustomerList.Click += new System.EventHandler(this.CustomerList_Click);
+            this.CusListPanel.Controls.Add(this.CusList);
+            this.CusListPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CusListPanel.Location = new System.Drawing.Point(0, 24);
+            this.CusListPanel.Name = "CusListPanel";
+            this.CusListPanel.Size = new System.Drawing.Size(350, 358);
+            this.CusListPanel.TabIndex = 3;
+            // 
+            // CusList
+            // 
+            this.CusList.AllowUserToAddRows = false;
+            this.CusList.AllowUserToDeleteRows = false;
+            this.CusList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CusList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.CusList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CusList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.CusList.Location = new System.Drawing.Point(0, 0);
+            this.CusList.MultiSelect = false;
+            this.CusList.Name = "CusList";
+            this.CusList.RowTemplate.Height = 23;
+            this.CusList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CusList.Size = new System.Drawing.Size(350, 358);
+            this.CusList.TabIndex = 0;
+            this.CusList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CusList_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "이름";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "나이";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "입양가능";
+            this.Column3.Name = "Column3";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(743, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
+            this.toolStripMenuItem1.Text = "새 입양자";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 382);
-            this.Controls.Add(this.CustomerList);
+            this.Controls.Add(this.CusListPanel);
             this.Controls.Add(this.CusNewPanel);
             this.Controls.Add(this.CusDetailPanel);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.CusDetailPanel.ResumeLayout(false);
             this.CusDetailPanel.PerformLayout();
             this.CusNewPanel.ResumeLayout(false);
             this.CusNewPanel.PerformLayout();
+            this.CusListPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CusList)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -325,7 +395,13 @@
         private System.Windows.Forms.TextBox CusNewAddress;
         private System.Windows.Forms.TextBox CusNewFirstName;
         private System.Windows.Forms.TextBox CusNewLastName;
-        private System.Windows.Forms.ListBox CustomerList;
+        private System.Windows.Forms.Panel CusListPanel;
+        private System.Windows.Forms.DataGridView CusList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
