@@ -1,0 +1,11 @@
+C:\Source\CSharp\06_05\BabyCarrotTest\bin\Debug\BabyCarrotTest.exe.config
+C:\Source\CSharp\06_05\BabyCarrotTest\bin\Debug\BabyCarrotTest.exe
+C:\Source\CSharp\06_05\BabyCarrotTest\bin\Debug\BabyCarrotTest.pdb
+C:\Source\CSharp\06_05\BabyCarrotTest\bin\Debug\BabyCarrot.dll
+C:\Source\CSharp\06_05\BabyCarrotTest\bin\Debug\BabyCarrot.pdb
+C:\Source\CSharp\06_05\BabyCarrotTest\obj\Debug\BabyCarrotTest.csproj.AssemblyReference.cache
+C:\Source\CSharp\06_05\BabyCarrotTest\obj\Debug\BabyCarrotTest.csproj.SuggestedBindingRedirects.cache
+C:\Source\CSharp\06_05\BabyCarrotTest\obj\Debug\BabyCarrotTest.csproj.CoreCompileInputs.cache
+C:\Source\CSharp\06_05\BabyCarrotTest\obj\Debug\BabyCarrotTest.csproj.CopyComplete
+C:\Source\CSharp\06_05\BabyCarrotTest\obj\Debug\BabyCarrotTest.exe
+C:\Source\CSharp\06_05\BabyCarrotTest\obj\Debug\BabyCarrotTest.pdb

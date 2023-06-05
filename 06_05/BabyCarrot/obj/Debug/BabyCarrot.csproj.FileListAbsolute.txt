@@ -1,0 +1,6 @@
+C:\Source\CSharp\06_05\BabyCarrot\bin\Debug\BabyCarrot.dll
+C:\Source\CSharp\06_05\BabyCarrot\bin\Debug\BabyCarrot.pdb
+C:\Source\CSharp\06_05\BabyCarrot\obj\Debug\BabyCarrot.csproj.AssemblyReference.cache
+C:\Source\CSharp\06_05\BabyCarrot\obj\Debug\BabyCarrot.csproj.CoreCompileInputs.cache
+C:\Source\CSharp\06_05\BabyCarrot\obj\Debug\BabyCarrot.dll
+C:\Source\CSharp\06_05\BabyCarrot\obj\Debug\BabyCarrot.pdb
