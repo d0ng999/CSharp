@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BabyCarrot.Tools;
 
 
 namespace BabyCarrotTest
@@ -11,7 +12,20 @@ namespace BabyCarrotTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(BabyCarrot.Tools.Application.Root);
+            LogManager log = new LogManager();
+
+            log.WriteLine("[Begin Processing] ------");
+
+            for (int i = 0; i < 10; i++)
+            {
+                log.WriteLine("Processing: " + i);
+
+                // Doing Something
+                System.Threading.Thread.Sleep(500);
+
+                log.WriteLine("Done: " + i);
+            }
+            log.WriteLine("[End Processing] ------" + "\r\n");
         }
     }
 }
