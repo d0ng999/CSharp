@@ -12,7 +12,7 @@ namespace BabyCarrotTest
     {
         static void Main(string[] args)
         {
-            LogManager log = new LogManager();
+            LogManager log = new LogManager(null, "_BabyCarrotText");
 
             log.WriteLine("[Begin Processing] ------");
 

@@ -14,20 +14,26 @@ namespace BabyCarrot.Tools
 
 
         #region < Constructors >
-        public LogManager(string  path, LogType logType)
+        public LogManager(string  path, LogType logType, string prefix, string postfix)
         {
             _path = path;
-            _SetLogPath(logType);
+            _SetLogPath(logType, prefix, postfix);
+        }
+
+        public LogManager(string prefix, string postfix)
+            : this(Path.Combine(Application.Root, "Log"), LogType.Daliy, prefix, postfix)
+        {
+
         }
 
         public LogManager()
-            : this(Path.Combine(Application.Root, "Log"), LogType.Daliy)
+            : this(Path.Combine(Application.Root, "Log"), LogType.Daliy, null, null)
         {
         }
         #endregion
 
         #region < Methods >
-        private void _SetLogPath(LogType logType)
+        private void _SetLogPath(LogType logType, string prefix, string postfix)
         {
             string path = String.Empty;
             string name = String.Empty;
@@ -36,12 +42,12 @@ namespace BabyCarrot.Tools
             {
                 case LogType.Daliy:
                     path = String.Format(@"{0}\{1}\", DateTime.Now.Year, DateTime.Now.ToString("MM"));
-                    name = DateTime.Now.ToString("yyyyMMdd") + ".txt";
+                    name = DateTime.Now.ToString("yyyyMMdd");
                     break;
 
                 case LogType.Monthly:
                     path = String.Format(@"{0}\", DateTime.Now.Year);
-                    name = DateTime.Now.ToString("yyyyMM") + ".txt";
+                    name = DateTime.Now.ToString("yyyyMM");
                     break;
             }
 
@@ -52,6 +58,15 @@ namespace BabyCarrot.Tools
                 Directory.CreateDirectory(_path);
             }
 
+            if (String.IsNullOrEmpty(prefix))
+            {
+                name = prefix + name;
+            }
+            if (String.IsNullOrEmpty(postfix))
+            {
+                name = postfix + name;
+            }
+            name += ".txt";
             _path = Path.Combine(_path, name);
         }
 
